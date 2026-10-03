@@ -1,8 +1,9 @@
 # Playwright E2E Test Framework
 
-Cross-browser end-to-end automation for the public [SauceDemo](https://www.saucedemo.com/) storefront. This repository is a portfolio project focused on maintainable test design, useful failure evidence, and repeatable CI execution.
+[![Playwright E2E](https://github.com/ashrafessa4/qa-playwright-portfolio/actions/workflows/e2e.yml/badge.svg)](https://github.com/ashrafessa4/qa-playwright-portfolio/actions/workflows/e2e.yml)
+[![Live report](https://img.shields.io/badge/report-live-16867a)](https://ashrafessa4.github.io/qa-playwright-portfolio/)
 
-> Status badge and hosted report link are added when the repository is connected to GitHub.
+Cross-browser end-to-end automation for the public [SauceDemo](https://www.saucedemo.com/) storefront. This repository is a portfolio project focused on maintainable test design, useful failure evidence, and repeatable CI execution.
 
 ![Passing Playwright test report](docs/images/playwright-report.png)
 
@@ -72,7 +73,7 @@ docker compose up --build --abort-on-container-exit
 
 ## CI and failure triage
 
-Every push to `main` and every pull request runs the full suite in three browser engines. The workflow merges their blob reports and publishes one downloadable HTML report for 14 days. Failed jobs also retain Playwright traces, screenshots, and videos.
+Every push to `main` and every pull request runs the full suite in three browser engines. The workflow merges their blob reports, keeps a downloadable artifact for 14 days, and publishes the latest `main` report to [GitHub Pages](https://ashrafessa4.github.io/qa-playwright-portfolio/). Failed jobs also retain Playwright traces, screenshots, and videos.
 
 To inspect a trace downloaded from CI:
 

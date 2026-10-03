@@ -90,3 +90,31 @@ jobs:
           name: playwright-html-report-${{ github.run_attempt }}
           path: playwright-report
           retention-days: 14
+
+      - name: Configure GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/configure-pages@v5
+
+      - name: Upload report for GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: playwright-report
+
+  deploy-report:
+    name: Deploy live HTML report
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: report
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy report to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
