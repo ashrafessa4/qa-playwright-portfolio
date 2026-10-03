@@ -1,0 +1,9 @@
+services:
+  e2e:
+    build: .
+    init: true
+    environment:
+      BASE_URL: ${BASE_URL:-https://www.saucedemo.com}
+    volumes:
+      - ./playwright-report:/tests/playwright-report
+      - ./test-results:/tests/test-results
