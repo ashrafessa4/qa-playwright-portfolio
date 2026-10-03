@@ -1,0 +1,30 @@
+{
+  "name": "qa-playwright-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Recruiter-ready cross-browser end-to-end test framework built with Playwright and TypeScript.",
+  "scripts": {
+    "test": "playwright test",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:regression": "playwright test --grep @regression",
+    "test:accessibility": "playwright test --grep @accessibility",
+    "test:headed": "playwright test --headed --project=chromium",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "playwright",
+    "e2e-testing",
+    "test-automation",
+    "typescript",
+    "cross-browser"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  }
+}
